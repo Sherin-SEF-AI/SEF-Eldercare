@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Update Location</h1>
+<form method="POST" action="{{ url_for('main.location') }}">
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.latitude.label }} {{ form.latitude }}
+    </div>
+    <div>
+        {{ form.longitude.label }} {{ form.longitude }}
+    </div>
+    <div>
+        {{ form.submit }}
+    </div>
+</form>
+{% endblock %}

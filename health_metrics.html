@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Add Health Metric</h1>
+<form id="health-form">
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.heart_rate.label }} {{ form.heart_rate(id="heart-rate") }}
+    </div>
+    <div>
+        {{ form.steps.label }} {{ form.steps(id="steps") }}
+    </div>
+    <div>
+        {{ form.submit }}
+    </div>
+</form>
+{% endblock %}

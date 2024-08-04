@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Log Activity</h1>
+<form method="POST" action="{{ url_for('main.activities') }}">
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.description.label }} {{ form.description }}
+    </div>
+    <div>
+        {{ form.submit }}
+    </div>
+</form>
+{% endblock %}

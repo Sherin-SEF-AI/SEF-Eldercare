@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ current_user.username }}'s Profile</h1>
+<h2>Health Metrics</h2>
+<ul>
+    {% for metric in health_metrics %}
+    <li>{{ metric.timestamp }} - Heart Rate: {{ metric.heart_rate }}, Steps: {{ metric.steps }}</li>
+    {% endfor %}
+</ul>
+<a href="{{ url_for('main.health_metrics') }}">Add Health Metric</a>
+
+<h2>Alerts</h2>
+<ul>
+    {% for alert in alerts %}
+    <li>{{ alert.timestamp }} - {{ alert.message }}</li>
+    {% endfor %}
+</ul>
+<a href="{{ url_for('main.alerts') }}">Send Alert</a>
+
+<h2>Locations</h2>
+<ul>
+    {% for location in locations %}
+    <li>{{ location.timestamp }} - Lat: {{ location.latitude }}, Long: {{ location.longitude }}</li>
+    {% endfor %}
+</ul>
+<a href="{{ url_for('main.location') }}">Update Location</a>
+
+<h2>Medications</h2>
+<ul>
+    {% for medication in medications %}
+    <li>{{ medication.timestamp }} - {{ medication.name }}: {{ medication.dose }} at {{ medication.time }}</li>
+    {% endfor %}
+</ul>
+<a href="{{ url_for('main.medication') }}">Add Medication</a>
+
+<h2>Activities</h2>
+<ul>
+    {% for activity in activities %}
+    <li>{{ activity.timestamp }} - {{ activity.description }}</li>
+    {% endfor %}
+</ul>
+<a href="{{ url_for('main.activities') }}">Log Activity</a>
+
+<h2>Messages</h2>
+<ul>
+    {% for message in messages %}
+    <li>{{ message.timestamp }} - From: {{ message.sender_id }} To: {{ message.recipient_id }} - {{ message.content }}</li>
+    {% endfor %}
+</ul>
+<a href="{{ url_for('main.messaging') }}">Send Message</a>
+{% endblock %}

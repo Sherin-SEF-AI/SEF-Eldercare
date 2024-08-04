@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Add Medication</h1>
+<form method="POST" action="{{ url_for('main.medication') }}">
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.name.label }} {{ form.name }}
+    </div>
+    <div>
+        {{ form.dose.label }} {{ form.dose }}
+    </div>
+    <div>
+        {{ form.time.label }} {{ form.time }}
+    </div>
+    <div>
+        {{ form.submit }}
+    </div>
+</form>
+{% endblock %}
